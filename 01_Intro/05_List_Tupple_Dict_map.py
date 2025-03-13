@@ -511,5 +511,5 @@ ascii_dict = {chr(i): i for i in range(65, 91)}
 # 150. İç içe lambda kullanarak çift sayıları filtreleme ve karesini alma
 numbers = [1, 2, 3, 4, 5, 6]
 even_squares = list(map(lambda x: x**2, filter(lambda x: x % 2 == 0, numbers)))
-
+#for örnekler
 """
