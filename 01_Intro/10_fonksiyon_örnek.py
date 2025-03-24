@@ -1,4 +1,4 @@
-def toplama():
+"""def toplama():
     x = int(input('Lütfen bir sayı giriniz: '))
     y = int(input('Lütfen bir sayı giriniz: '))
     toplam = x + y
@@ -220,9 +220,248 @@ def sayi_turlerini_say():
 sayi_turlerini_say()
 
 
+def sayilari_say(limit=100):
+    sayac = 0
+    ciftler = 0
+    tekler = 0
+
+    while sayac <= limit:
+        if sayac % 2 == 0:
+            ciftler += 1
+        else:
+            tekler += 1
+
+        sayac += 1  # her bir sayıya uğrasın diye
+        print(f'Ciftler: {ciftler}\nTekler: {tekler}')
+    return ciftler, tekler
+# Fonksiyonu çağırma
+cift_sayisi, tek_sayisi = sayilari_say()
+print(f"Toplam Çift Sayı: {cift_sayisi}, Toplam Tek Sayı: {tek_sayisi}")
+
+
+def sayilarin_toplamini_hesapla(limit=100):
+    sayac = 0
+    ciftlerin_toplami = 0
+    teklerin_toplami = 0
+
+    while sayac <= limit:
+        if sayac % 2 == 0:
+            ciftlerin_toplami += sayac
+        else:
+            teklerin_toplami += sayac
+            sayac += 1
+
+        sayac += 1  # her bir sayıya uğrasın diye
+        print(f'Cift Sayıların Toplamı: {ciftlerin_toplami}\nTek Sayıların Toplamı: {teklerin_toplami}')
+    return ciftlerin_toplami, teklerin_toplami
+# Fonksiyonu çağırma
+cift_toplam, tek_toplam = sayilarin_toplamini_hesapla()
+print(f"Toplam Çift Sayıların Toplamı: {cift_toplam}, Toplam Tek Sayıların Toplamı: {tek_toplam}")
+
+
+def dort_islem():
+    sayi1 = int(input('Birinci sayıyı giriniz: '))
+    sayi2 = int(input('İkinci sayıyı giriniz: '))
+    islem_turu = input('İşlem türünü giriniz (+, -): ')
+
+    while islem_turu == 'e':
+        if islem_turu == '+':
+            print(sayi1 + sayi2)
+        elif islem_turu == '-':
+            print(sayi1 - sayi2)
+        else:
+            print('Lütfen geçerli bir işlem giriniz (+ veya -)')
+
+        islem_turu = input('Devam etmek için "e" giriniz, çıkmak için başka bir tuşa basınız: ')
+# Fonksiyonu çağırma
+dort_islem()
+
+
+def dort_islem():
+    while True:
+        islem = input("Toplama için '+', çıkarma için '-' giriniz (Çıkış için 'e' tuşlayın): ")
+        if islem == 'e':
+            print("Programdan çıkılıyor...")
+            break
+        elif islem not in ('+', '-'):
+            print("Geçersiz işlem! Lütfen '+' veya '-' giriniz.")
+            continue
+
+        try:
+            sayi1 = float(input("Birinci sayıyı giriniz: "))
+            sayi2 = float(input("İkinci sayıyı giriniz: "))
+
+            if islem == '+':
+                sonuc = sayi1 + sayi2
+                print(f"Sonuç: {sayi1} + {sayi2} = {sonuc}")
+            else:
+                sonuc = sayi1 - sayi2
+                print(f"Sonuç: {sayi1} - {sayi2} = {sonuc}")
+        except ValueError:
+            print("Lütfen geçerli bir sayı giriniz!")
+# Fonksiyonu çağırma
+dort_islem()
 
 
 
+def asal_sayi_kontrol(sayi):
+    if sayi < 2:
+        print(sayi, "asal değil")
+        return False
+
+    asal = True
+    i = 2
+    while i * i <= sayi:
+        if sayi % i == 0:
+            asal = False
+            print('Sayı asal değil')
+            break
+        i += 1
+    print(sayi, "asal mı?", asal)
+    return asal
+# Kullanıcıdan giriş alıp fonksiyonu çağırma
+sayi = int(input('Sayı giriniz: '))
+asal_sayi_kontrol(sayi)
+
+
+def asal_sayi_sorgula():
+    while True:
+        sayi = int(input("Sorgulamak İstediğiniz Sayıyı Girin: "))
+
+        if sayi % 2 == 0:
+            print("Sayı asal sayı değildir.")
+        else:
+            print("Sayı asal sayıdır.")
+            break
+# Fonksiyonu çağırma
+asal_sayi_sorgula()
+
+
+def asal_sayi_kontrol(sayi):
+    if sayi < 2:
+        print('2 den küçük sayı girmeyin')
+        return False
+    is_prime = True
+    sayac = 2
+    while sayac < sayi:
+        if sayi % sayac == 0:
+            is_prime = False
+            break
+        sayac += 1  # Burada artırılmalı
+    if is_prime:
+        print(f'{sayi} asaldır')
+    else:
+        print(f'{sayi} asal değil')
+    return is_prime
+# Kullanıcıdan giriş alıp fonksiyonu çağırma
+sayi = int(input('Sayı giriniz: '))
+asal_sayi_kontrol(sayi)
+
+
+def sayac_yazdir(baslangic=0, bitis=10, artis=1):
+    for sayac in range(baslangic, bitis, artis):
+        print(sayac, end=",")
+    print()  # Yeni satır eklemek için
+# Fonksiyonu çağırma
+sayac_yazdir()
+
+
+def sayilari_yazdir():
+    for sayac in range(0, 10, 1):
+        print(sayac, end=",")
+    print()
+
+    for sayac in range(10, 51, 2):
+        print(sayac, end=",")
+    print()
+
+def tek_cift_sayac():
+    tek_sayac = 0
+    cift_sayac = 0
+
+    for i in range(101):  # 0'dan 100'e kadar
+        if i % 2 == 0:
+            cift_sayac += 1
+            print(f"Çift: {i}")
+        else:
+            tek_sayac += 1
+            print(f"Tek:  {i}")
+
+    print(f"\nToplam {tek_sayac} tek sayı ve {cift_sayac} çift sayı var.")
+# Fonksiyonları çağırma
+sayilari_yazdir()
+tek_cift_sayac()
 
 
 
+def sayilari_yazdir():
+    for sayac in range(0, 10, 1):
+        print(sayac, end=",")
+    print()
+
+    for sayac in range(10, 51, 2):
+        print(sayac, end=",")
+    print()
+
+
+
+def tek_cift_sayac():
+    tek_sayac = 0
+    cift_sayac = 0
+
+    for i in range(101):  # 0'dan 100'e kadar
+        if i % 2 == 0:
+            cift_sayac += 1
+            print(f"Çift: {i}")
+        else:
+            tek_sayac += 1
+            print(f"Tek:  {i}")
+
+    print(f"\nToplam {tek_sayac} tek sayı ve {cift_sayac} çift sayı var.")
+# Fonksiyonları çağırma
+sayilari_yazdir()
+tek_cift_sayac()
+
+
+
+def kareler_yazdir(baslangic, bitis, adm_miktari):
+    for i in range(baslangic, bitis + 1, adm_miktari):
+        print(i ** 2, end=', ')
+# Kullanıcıdan giriş alıp fonksiyonu çağırma
+baslangic = int(input('Başlangıç: '))
+bitis = int(input('Bitiş: '))
+adm_miktari = int(input('Adım: '))
+kareler_yazdir(baslangic, bitis, adm_miktari)
+
+
+
+def carpim_tablosu():
+    for i in range(1, 11):
+        for j in range(1, 11):
+            for k in range(1, 11):
+                print(k)
+            print(f'{i} x {j} = {i * j}')
+        print('==============')
+# Fonksiyonu çağırma
+carpim_tablosu()
+
+
+def x_yazdir():
+    for i in range(1, 5):  # i satır
+        for j in range(1, 15):  # j sütun
+            print('x', end='')
+        print(' ')  # Yeni satır
+# Fonksiyonu çağırma
+x_yazdir()
+
+
+
+def bosluk_yazdir():
+    for i in range(1, 5):
+        for j in range(1, 20):
+            if j % 2 == 0:
+                print('', end='')
+            print(' ')  # Yeni satır
+# Fonksiyonu çağırma
+bosluk_yazdir()
+"""
