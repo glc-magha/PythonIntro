@@ -1,5 +1,9 @@
 # Fatura ödeme uygulaması
 
+
+#Kdv LER EKLENECEK
+
+
 # Kullanıcı bilgileri
 kullanicilar = {
     "ali": "1234",
